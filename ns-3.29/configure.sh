@@ -34,7 +34,8 @@ echo $SCRIPTPATH
 cd $SCRIPTPATH/src
 git clone --recurse-submodules https://github.com/ljerezchaves/ofswitch13.git
 cd $SCRIPTPATH/src/ofswitch13
-git checkout 3.3.0 && git submodule update --recursive
+git checkout 3.3.0 
+git submodule update --recursive
 
 #exec bash
 cd $SCRIPTPATH/src/ofswitch13/lib/ofsoftswitch13
@@ -43,11 +44,11 @@ cd $SCRIPTPATH/src/ofswitch13/lib/ofsoftswitch13
 make
 
 cd ../../../../
-patch -p1 < src/ofswitch13/utils/ofswitch13-src-3_29.patch
-patch -p1 < src/ofswitch13/utils/ofswitch13-doc-3_29.patch
+#patch -p1 < src/ofswitch13/utils/ofswitch13-src-3_29.patch
+#patch -p1 < src/ofswitch13/utils/ofswitch13-doc-3_29.patch
 
-./waf configure
-#./waf configure --with-ofswitch13=src/ofswitch13/lib/ofsoftswitch13/
+#./waf configure
+./waf configure --with-ofswitch13=src/ofswitch13/lib/ofsoftswitch13/
 ./waf
 
 #sudo ./waf configure --with-ofswitch13=lib/ofsoftswitch13/
